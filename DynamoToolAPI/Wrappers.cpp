@@ -5,16 +5,21 @@ Wrappers::Wrappers() {
 };
 
 // Run script in current location
-void Wrappers::RunScriptHere() {
-
+void Wrappers::RunScriptHere(string scriptName) {
+	system(scriptName.c_str());
 };
 
-// Run script in current locatiom with arguments
-void Wrappers::RunScriptHere(string args[]) {
-
+// Run script in current location with arguments
+void Wrappers::RunScriptHere(string scriptName, vector<string> args) {
+	string command = scriptName;
+	for(int i = 0; i < args.size(); i++)
+	{
+		command += " " + args.at(i);
+	}
+	system(command.c_str());
 };
 
 // Run script in current location with arguments and dependencies
-void Wrappers::RunScriptHere(string args[], string dependencies[]) {
+void Wrappers::RunScriptHere(string scriptName, vector<string> args, vector<string> dependencies) {
 
 };
